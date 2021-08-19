@@ -32,6 +32,11 @@ export default function reducer(state = initialState, action) {
               showSignUp: false,
           }
       }
+      case 'CLOSEMODAL': return{
+        ...state,
+        showSignIn: false,
+        showSignUp: false,
+      }
     default:
       return state;
   }

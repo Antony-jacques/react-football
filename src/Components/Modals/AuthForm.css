@@ -86,20 +86,7 @@
     margin-top: 3px;
     cursor: pointer;
   }
-  /* .btn-close {
-    background: crimson;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: -40px;
-    right: 0px;
-    font-size: 20px;
-    color: #f1f1f1;
-    border: none;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    cursor: pointer;
-  } */
+
 
   #btn-close.close{
     position: absolute;

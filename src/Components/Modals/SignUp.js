@@ -7,10 +7,18 @@ export default function SignUp() {
   // aller chercher le state globlal qui se trouve dans le reducer
   const showModal = useSelector((state) => state);
 
+  const dispatch = useDispatch()
+
+  const closeModal= ()=>{
+    dispatch({
+      type:'CLOSEMODAL'
+    })
+  }
+
   return (
     // <div className='global-modal'>
     <div className={showModal.showSignUp ? "global-modal" : "hide-modal"}>
-      <div className="overlay">
+      <div className="overlay" onClick={closeModal}>
         <div className="container-modal">
           <form className="form-auth">
             <h2>Inscription</h2>
@@ -25,7 +33,7 @@ export default function SignUp() {
 
             <button>S'inscrire</button>
           </form>
-          <button id="btn-close" className="close">
+          <button id="btn-close" className="close" onClick={closeModal}>
             X
           </button>{" "}
         </div>
