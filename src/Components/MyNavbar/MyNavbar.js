@@ -16,6 +16,13 @@ const MyNavbar = () => {
       type:'TOGGLEUP'
     })
   }
+
+  const toggleIn = () =>{
+    dispatch({
+      type:'TOGGLEIN'
+
+    })
+  }
   return (
     <Navbar bg="light" expand="lg" className="navbar">
       <Container>
@@ -23,8 +30,8 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <button onClick={toggleIn} >Se connecter</button>
             <button onClick={toggleUp}>S'inscrire</button>
-            <button>Se connecter</button>
             {/* <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#link">Link</Nav.Link> */}
 

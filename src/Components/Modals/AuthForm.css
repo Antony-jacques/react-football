@@ -86,7 +86,7 @@
     margin-top: 3px;
     cursor: pointer;
   }
-  .btn-close {
+  /* .btn-close {
     background: crimson;
     width: 40px;
     height: 40px;
@@ -99,7 +99,7 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     cursor: pointer;
-  }
+  } */
 
   #btn-close.close{
     position: absolute;
@@ -117,4 +117,6 @@
 
     
   }
+
+
   
