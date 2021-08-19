@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import "./AuthForm.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -15,6 +15,8 @@ export default function SignUp() {
     })
   }
 
+  const inputs = useRef([])
+  
   return (
     // <div className='global-modal'>
     <div className={showModal.showSignUp ? "global-modal" : "hide-modal"}>
