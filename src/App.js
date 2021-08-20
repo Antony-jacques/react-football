@@ -2,19 +2,33 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from './Components/MyNavbar/MyNavbar'
-import HomePage from './Pages/HomePage/HomePage'
 import LoginPage from './Pages/LoginPage/LoginPage'
+import PrivateHome from './Pages/PrivateHome/PrivateHome'
 import AuthProvider from'./Context/AuthContext'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   return (
-    <AuthProvider>
-
     <div className="App">
-      <LoginPage/>
 
-    </div>
+
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={LoginPage} ></Route>
+          <Route exact path='/accueil' component={PrivateHome} ></Route>
+        </Switch>
+      </Router>
+
+
     </AuthProvider>
+    </div>
   );
 }
 

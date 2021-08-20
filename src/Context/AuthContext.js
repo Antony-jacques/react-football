@@ -25,7 +25,7 @@ export default function AuthProvider(props) {
     },[])
 
     return (
-        <AuthContext.Provider>
+        <AuthContext.Provider value={{currentUser, signUp,login,logout}}>
             {props.children}
         </AuthContext.Provider>
     );
