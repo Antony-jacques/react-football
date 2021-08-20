@@ -2,6 +2,7 @@ import React, {useState, useRef, useContext} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import './AuthForm.css'
 import {AuthContext} from '../../Context/AuthContext'
+import {useHistory} from 'react-router-dom'
 
 const SignIn = () => {
 
@@ -28,6 +29,8 @@ const SignIn = () => {
 
   const [error, setError] = useState('');
 
+  const history = useHistory()
+
   async function handleSubmit(e){
 e.preventDefault()
     try{
@@ -36,6 +39,8 @@ e.preventDefault()
     } catch{
       setError('Mail ou mot de passe incorrect')
     }
+    closeModal()
+    history.push('/accueil')
   }
 
 

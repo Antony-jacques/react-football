@@ -1,4 +1,5 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext,  } from "react";
+import {useHistory} from 'react-router-dom'
 import "./AuthForm.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -28,6 +29,8 @@ export default function SignUp() {
   const {signUp} = useContext(AuthContext);
   const [error, setError] = useState('');
 
+  const history = useHistory()
+
   async function handleSubmit(e){
     e.preventDefault();
     if (inputs.current[1].value !== inputs.current[2].value) {
@@ -41,10 +44,11 @@ export default function SignUp() {
     else{
       await signUp(inputs.current[0].value,inputs.current[1].value)
       closeModal()
-      inputs.current.forEach(inp =>{
-        inp.value=''
-      })
-      setError('')
+      // inputs.current.forEach(inp =>{
+      //   inp.value=''
+      // })
+      // setError('')
+      history.push('/accueil')
 
 
 
