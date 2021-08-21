@@ -23,7 +23,6 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={LoginPage} ></Route>
-          {/* <Route exact path='/accueil' component={PrivateHome} ></Route> */}
           <PrivateRoute exact path='/accueil' component={PrivateHome}></PrivateRoute>
 
         </Switch>

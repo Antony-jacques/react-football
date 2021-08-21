@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {AuthContext} from '../../Context/AuthContext'
+import Highlights from '../../Components/Highlights/Highlights'
 
 const PrivateHome = () => {
 
@@ -8,6 +9,7 @@ const PrivateHome = () => {
         <div>
             <h1>Page privée</h1>
             <button onClick={logout}>Se déconnecter</button>
+            <Highlights/>
         </div>
     );
 }

@@ -7,6 +7,8 @@ import MyNavbar from "../../Components/MyNavbar/MyNavbar";
 import SignUp from "../../Components/Modals/SignUp";
 import SignIn from "../../Components/Modals/SignIn";
 
+import Highlights from '../../Components/Highlights/Highlights';
+
 const LoginPage = () => {
 
   const dispatch= useDispatch()
@@ -33,6 +35,7 @@ const LoginPage = () => {
         </p>
         <SignUp />
         <SignIn/>
+        <Highlights/>
       </div>
     </div>
   );
