@@ -1,6 +1,9 @@
 const initialState = {
   showSignIn: false,
   showSignUp: false,
+  gamesList:[],
+  filter:false,
+  competition:''
 };
 
 export default function reducer(state = initialState, action) {
@@ -36,6 +39,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         showSignIn: false,
         showSignUp: false,
+      }
+      case 'PREMIERLEAGUE': return{
+        ...state,
+        competition: 'ENGLAND: Premier League',
+        filter : true
       }
     default:
       return state;
