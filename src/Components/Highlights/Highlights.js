@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
+import './Highlights.css'
 
 const Highlights = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,17 @@ const Highlights = () => {
     })
   }
 
+  const getAllHighlights = ()=>{
+    dispatch({
+      type : 'ALLCOMPETITIONS'
+    })
+  }
+
+  const getFRHighlights = ()=>{
+    dispatch({
+      type : 'LIGUE1'
+    })
+  }
   const [data, setData] = useState([]);
   const [gamesList, setGamesList] = useState([]);
   const [filter, setFilter] = useState(false);
@@ -34,10 +46,10 @@ const Highlights = () => {
   return (
     <div>
       <nav>
-        <button>Tous les matchs</button>
-        <button onClick={getPLHighlights}>Premier League</button>
+        <button className={!highlightsStore.filter && 'active'} onClick={getAllHighlights} >Tous les matchs</button>
+        <button className={(highlightsStore.filter && highlightsStore.competition === 'FRANCE: Ligue 1' ) && 'active'} onClick={getFRHighlights}>Ligue 1</button>
+        <button className={(highlightsStore.filter && highlightsStore.competition === 'ENGLAND: Premier League' ) && 'active'} onClick={getPLHighlights}>Premier League</button>
       </nav>
-      <div>{highlightsStore.filter ? highlightsStore.competition : 'filter est false'}</div>
       {gamesList[0] && (
         <div>
           {gamesList.map((val, index) => {

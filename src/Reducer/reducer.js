@@ -45,6 +45,17 @@ export default function reducer(state = initialState, action) {
         competition: 'ENGLAND: Premier League',
         filter : true
       }
+      case 'ALLCOMPETITIONS' : return{
+        ...state,
+        filter : false
+
+      }
+      case 'LIGUE1':return{
+        ...state,
+        competition: 'FRANCE: Ligue 1',
+
+        filter:true,
+      }
     default:
       return state;
   }

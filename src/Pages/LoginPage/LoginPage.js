@@ -35,7 +35,6 @@ const LoginPage = () => {
         </p>
         <SignUp />
         <SignIn/>
-        <Highlights/>
       </div>
     </div>
   );
