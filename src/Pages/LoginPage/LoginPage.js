@@ -7,7 +7,7 @@ import MyNavbar from "../../Components/MyNavbar/MyNavbar";
 import SignUp from "../../Components/Modals/SignUp";
 import SignIn from "../../Components/Modals/SignIn";
 
-import Highlights from '../../Components/Highlights/Highlights';
+import LiveList from '../../Components/LiveList/LiveList';
 
 const LoginPage = () => {
 
@@ -35,6 +35,7 @@ const LoginPage = () => {
         </p>
         <SignUp />
         <SignIn/>
+        <LiveList/>
       </div>
     </div>
   );
