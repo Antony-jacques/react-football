@@ -34,13 +34,14 @@ const SignIn = () => {
   async function handleSubmit(e){
 e.preventDefault()
     try{
-     await login(inputs.current[0].value, inputs.current[1].value)
+     await login(inputs.current[0].value, inputs.current[1].value);
+     closeModal()
+     history.push('/accueil')
 
     } catch{
       setError('Mail ou mot de passe incorrect')
     }
-    closeModal()
-    history.push('/accueil')
+
   }
 
 
