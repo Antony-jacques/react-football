@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import imgData from './imgData'
+import { Link } from "react-router-dom";
+
 
 export default function LiveList() {
   const [data, setData] = useState([]);
   const [competition, setCompetition] = useState("");
-  //  const [standings, setStandings] = useState();
+   const [standings, setStandings] = useState();
   const [currentMatchday, setCurrentMatchday] = useState("1");
 
   const handleCurrentMatchDay = (el) => {
-    // setStandings(el)
+    setStandings(el)
     setCurrentMatchday(el.season.currentMatchday);
   };
 // ATTENTION 10 API calls per minute
@@ -90,11 +92,13 @@ export default function LiveList() {
                 {/* {val.homeTeam.id} {val.homeTeam.name} - {val.awayTeam.name} {val.awayTeam.id} */}
                 </h3>
                 <h4>
+                  <Link to={`/match/${val.id}`}>
                   {val.status === "FINISHED" &&
                     val.score.fullTime.homeTeam +
                       " - " +
                       val.score.fullTime.awayTeam}
-                  {/* {(val.status === "SCHEDULED" && (date.getMonth()+1)<10) && 'à venir ' + date.getDate() + '/' + 0 +  (date.getMonth()+1) + ' à ' + date.getHours() + ':' + (date.getMinutes().toString().padStart(2, '0'))} */}
+</Link>
+
                   {/* La méthode padStart() permet de compléter la chaîne courante avec une chaîne de caractères donnée afin d'obtenir une chaîne de longueur fixée. */}
                   {val.status === "SCHEDULED" &&
                     "à venir " +

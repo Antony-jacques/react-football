@@ -3,7 +3,8 @@ const initialState = {
   showSignUp: false,
   gamesList:[],
   filter:false,
-  competition:''
+  competition:'',
+  gameDetails: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -55,6 +56,10 @@ export default function reducer(state = initialState, action) {
         competition: 'FRANCE: Ligue 1',
 
         filter:true,
+      }
+      case 'GETMATCH': return{
+        ...state,
+        gameDetails : action.gameDetails
       }
     default:
       return state;
