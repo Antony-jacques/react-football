@@ -4,6 +4,7 @@ import 'firebase/auth'
 const app = firebase.initializeApp({
     apiKey: "AIzaSyB-QytXbDHgrC5LMvOLpBJ7rHCT-77F9K4",
     authDomain: "react-football-41714.firebaseapp.com",
+    databaseURL: "https://react-football-41714-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "react-football-41714",
     storageBucket: "react-football-41714.appspot.com",
     messagingSenderId: "172086194853",

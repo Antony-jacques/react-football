@@ -7,8 +7,7 @@ import MyNavbar from "../../Components/MyNavbar/MyNavbar";
 import SignUp from "../../Components/Modals/SignUp";
 import SignIn from "../../Components/Modals/SignIn";
 
-import LiveList from '../../Components/LiveList/LiveList';
-
+import Tchat from '../../Components/Tchat/Tchat'
 const LoginPage = () => {
 
   const dispatch= useDispatch()
@@ -35,7 +34,7 @@ const LoginPage = () => {
         </p>
         <SignUp />
         <SignIn/>
-        <LiveList/>
+        <Tchat/>
       </div>
     </div>
   );
