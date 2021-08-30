@@ -58,8 +58,7 @@ export default function LiveList() {
     }
   }
 
-  const cherche = 65;
-  console.log(imgData[cherche])
+
 
   return (
     <div>
