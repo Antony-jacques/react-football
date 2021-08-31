@@ -19,6 +19,9 @@ export default function PrivateNavbar() {
             <Link style={{ margin: "0 3rem" }} to="/live">
               Live
             </Link>
+            <Link style={{ margin: "0 3rem" }} to="/Tchat">
+              Tchat
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
