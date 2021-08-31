@@ -1,7 +1,8 @@
 import React, { useState, useEffect,useContext } from "react";
 import firebase from '../../firebase'
 import {db} from '../../firebase'
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, deleteDoc } from "firebase/firestore"; 
+
 import {AuthContext} from '../../Context/AuthContext'
 import Button from 'react-bootstrap/Button';
 
@@ -11,6 +12,7 @@ export default function Tchat() {
   const [messages, setMessages] = useState([]);
   const {currentUser} = useContext(AuthContext)
   const currentUserId = currentUser.uid
+  const [dataTest, setDataTest] = useState([]);
 
 
   useEffect(() => {
@@ -21,10 +23,13 @@ export default function Tchat() {
       // snapshot.docs designe tous les enregistrements
       //data() data permet d'acceder aux données
         setMessages(snapshot.docs.map(doc=>doc.data()))
+        setDataTest(snapshot.docs.map(doc=>{
+          return {messageId:doc.id, data:doc.data()}
+        }))
     })
   },[])
 
-  //aouter un enregistrement https://www.youtube.com/watch?v=zpQle4SBRfg
+  //ajouter un enregistrement https://www.youtube.com/watch?v=zpQle4SBRfg
   const createMessage = (e)=>{
     e.preventDefault()
     //selectionner la DB
@@ -38,40 +43,48 @@ export default function Tchat() {
     setText('')
   }
 
-//   const createMessage = (e) => {
-//       e.preventDefault();
-//     // on renseigne la DB qu'on utilise dans ref()
-//     const messagesDB = firebase.database().ref("messagesDB");
-//     const message = {
-//       author,
-//       text,
-//     };
+  const deleteMessage = (index)=>{
+    db.collection('messages')
+    .doc(index)
+    .delete()
 
-//     messagesDB.push(message);
 
-//     setAuthor("");
-//     setText("");
-//   };
+  }
 
  console.log(messages)
+ console.log('dataTest',dataTest)
+
 // console.log('currentUser', currentUser.uid)
-console.log('Date', new Date() )
+//console.log('Date', new Date() )
   return (
     <div>
         <h4>Chat en direct</h4>
-        {messages.map(({text, authorId} )=>(
+        {/* {messages.map(({text, authorId},index )=>(
           <div> 
-            <p key={authorId}>
-                {text}
+            <p key={index}>
+                {text} {index}
                 
+            {(currentUserId === authorId) && <Button onClick={()=>deleteMessage(index)} variant="danger">x</Button> }
             </p>
-            <p>{currentUserId}</p>
-            <p>{authorId}</p>
-            {(currentUserId === authorId) && <Button variant="danger">Danger</Button> }
+
           </div>
           
-        ))}
+        ))} */}
         
+
+
+
+      {dataTest.map((val,index )=>(
+        <div> 
+          <p key={index}>
+              {val.data.text} {val.messageId}
+              
+          {(currentUserId === val.data.authorId) && <Button onClick={()=>deleteMessage(val.messageId)} variant="danger">x</Button> }
+          </p>
+
+        </div>
+        
+      ))}
       <form onSubmit={createMessage}>
         <textarea placeholder="message" type="text" value={text} onChange ={(e)=>{setText(e.target.value)}}/>
         <button type="subit">Envoyer</button>
