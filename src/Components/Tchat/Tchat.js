@@ -5,14 +5,17 @@ import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
 import { AuthContext } from "../../Context/AuthContext";
 import Button from "react-bootstrap/Button";
+import TchatItem from './TchatItem'
+import './Tchat.css'
 
 export default function Tchat() {
-  const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser.uid;
-  const [dataTest, setDataTest] = useState([]);
+  const [editMessage, setEditMessage] = useState(false);
+  const [newEditedMessage, setNewEditedMessage] = useState("");
+ 
 
   useEffect(() => {
     //acceder à la table messages
@@ -51,12 +54,12 @@ export default function Tchat() {
       .delete();
   };
 
-  const [editMessage, setEditMessage] = useState(false);
-  const [newEditedMessage, setNewEditedMessage] = useState("");
+
 
   const sendEditedMessage = (messageId)=>{
     db.collection("messages")
     .doc(messageId)
+    // update() change un seul champs du doc sans écraser tout le document
     .update({ text: newEditedMessage })
 
     setEditMessage(false)
@@ -64,65 +67,18 @@ export default function Tchat() {
 
   }
 
-  console.log("messages", messages);
 
-  // console.log('currentUser', currentUser.uid)
-  //console.log('Date', new Date() )
   return (
-    <div>
+    <div className="container">
       <h4>Chat en direct</h4>
+{
 
-      {messages.map((val, index) => (
-        <div>
-          <div key={index}>
-            {!editMessage ? (
-              <div style={{display:'inline'}} >{val.data.text}  </div> 
-            ) : (
-              <div>
-                <textarea
-                  defaultValue={val.data.text}
-                    onChange={(e) => {
-                      setNewEditedMessage(e.target.value);
-                    }}
-                  type="text"
-                />{" "}
-                <Button onClick={()=>{sendEditedMessage(val.messageId)}} variant="success">Envoyer la modification</Button>
-              </div>
-            )}
+    messages.map((message,index)=>(
+      
+      <TchatItem key={index} item={message} currentUserId={currentUserId}></TchatItem>
+      ))
 
-            {currentUserId === val.data.authorId && (
-              <>
-                <Button
-                  onClick={() => deleteMessage(val.messageId)}
-                  variant="danger"
-                >
-                  x
-                </Button>
-                <Button
-                  variant="warning"
-                  onClick={() => setEditMessage(!editMessage)}
-                >
-                  modifier
-                </Button>
-                {/* {editMessage && <div> <input value={val.data.text} type="text"/>  <Button variant="success">Envoyer</Button></div>} */}
-              </>
-            )}
-          </div>
-        </div>
-      ))}
-      <form onSubmit={createMessage}>
-        <textarea
-          placeholder="message"
-          type="text"
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-        <Button variant="success" type="subit">
-          Envoyer
-        </Button>
-      </form>
+    }
     </div>
   );
 }

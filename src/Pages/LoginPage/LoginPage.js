@@ -34,7 +34,6 @@ const LoginPage = () => {
         </p>
         <SignUp />
         <SignIn/>
-        <Tchat/>
       </div>
     </div>
   );

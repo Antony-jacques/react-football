@@ -1,0 +1,14 @@
+.send{
+    display:flex;
+    justify-content: flex-end;
+    background-color: lightblue;
+}
+
+.received{
+    display: flex;
+    background-color: whitesmoke;
+}
+
+.container{
+    width:70vw;
+}
