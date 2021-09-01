@@ -52,8 +52,8 @@ const TchatItem = (item) => {
   }
 
 
-  console.log("message", message);
-  console.log("currentUserId", currentUserId);
+//   console.log("message", message);
+//   console.log("currentUserId", currentUserId);
 
 
 
@@ -98,7 +98,7 @@ const TchatItem = (item) => {
             )}
           </div>
         </div>
-      <form onSubmit={createMessage}>
+      {/* <form onSubmit={createMessage}>
         <textarea
           placeholder="message"
           type="text"
@@ -110,7 +110,7 @@ const TchatItem = (item) => {
         <Button variant="success" type="subit">
           Envoyer
         </Button>
-      </form> 
+      </form>  */}
     </div>
     );
 }

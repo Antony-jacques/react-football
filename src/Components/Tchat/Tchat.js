@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import firebase from "../../firebase";
 import { db } from "../../firebase";
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
@@ -15,6 +15,7 @@ export default function Tchat() {
   const currentUserId = currentUser.uid;
   const [editMessage, setEditMessage] = useState(false);
   const [newEditedMessage, setNewEditedMessage] = useState("");
+  const forScroll = useRef()
  
 
   useEffect(() => {
@@ -45,6 +46,8 @@ export default function Tchat() {
         createdAt: new Date(),
       });
     setText("");
+
+    forScroll.current.scrollIntoView({behaviour:'smooth'});
   };
 
   const deleteMessage = (messageId) => {
@@ -71,14 +74,40 @@ export default function Tchat() {
   return (
     <div className="container">
       <h4>Chat en direct</h4>
-{
+      <nav>
 
+     
+      <ul>
+
+     
+{
     messages.map((message,index)=>(
-      
+      <li>
       <TchatItem key={index} item={message} currentUserId={currentUserId}></TchatItem>
+      </li>
+      
       ))
 
     }
+          <div className="forScroll" ref={forScroll}></div>
+     </ul>
+     </nav>
+    
+          <form onSubmit={createMessage}>
+        <textarea
+          placeholder="message"
+          type="text"
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        />
+
+        <Button variant="success" type="submit">
+          Envoyer
+        </Button>
+      </form> 
+      {/* <div className="forScroll" ref={forScroll}></div> */}
     </div>
   );
 }
