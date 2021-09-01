@@ -31,8 +31,14 @@ export default function Tchat() {
             return { messageId: doc.id, data: doc.data() };
           })
         );
+        forScroll.current.scrollIntoView({behaviour:'smooth'});
       });
   }, []);
+// if( forScroll.current){
+
+//   forScroll.current.scrollIntoView({behaviour:'smooth'});
+// }
+
 
   //ajouter un enregistrement https://www.youtube.com/watch?v=zpQle4SBRfg
   const createMessage = (e) => {
@@ -73,9 +79,11 @@ export default function Tchat() {
 
   return (
     <div className="container">
-      <h4>Chat en direct</h4>
       <nav>
+        <div className="heading">
 
+      <h4>Chat en direct</h4>
+        </div>
      
       <ul>
 
