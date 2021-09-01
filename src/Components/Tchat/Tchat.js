@@ -5,8 +5,8 @@ import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
 import { AuthContext } from "../../Context/AuthContext";
 import Button from "react-bootstrap/Button";
-import TchatItem from './TchatItem'
-import './Tchat.css'
+import TchatItem from "./TchatItem";
+import "./Tchat.css";
 
 export default function Tchat() {
   const [text, setText] = useState("");
@@ -15,8 +15,7 @@ export default function Tchat() {
   const currentUserId = currentUser.uid;
   const [editMessage, setEditMessage] = useState(false);
   const [newEditedMessage, setNewEditedMessage] = useState("");
-  const forScroll = useRef()
- 
+  const forScroll = useRef();
 
   useEffect(() => {
     //acceder à la table messages
@@ -31,14 +30,9 @@ export default function Tchat() {
             return { messageId: doc.id, data: doc.data() };
           })
         );
-        forScroll.current.scrollIntoView({behaviour:'smooth'});
+        forScroll.current.scrollIntoView({ behaviour: "smooth" });
       });
   }, []);
-// if( forScroll.current){
-
-//   forScroll.current.scrollIntoView({behaviour:'smooth'});
-// }
-
 
   //ajouter un enregistrement https://www.youtube.com/watch?v=zpQle4SBRfg
   const createMessage = (e) => {
@@ -53,7 +47,7 @@ export default function Tchat() {
       });
     setText("");
 
-    forScroll.current.scrollIntoView({behaviour:'smooth'});
+    forScroll.current.scrollIntoView({ behaviour: "smooth" });
   };
 
   const deleteMessage = (messageId) => {
@@ -63,45 +57,37 @@ export default function Tchat() {
       .delete();
   };
 
-
-
-  const sendEditedMessage = (messageId)=>{
+  const sendEditedMessage = (messageId) => {
     db.collection("messages")
-    .doc(messageId)
-    // update() change un seul champs du doc sans écraser tout le document
-    .update({ text: newEditedMessage })
+      .doc(messageId)
+      // update() change un seul champs du doc sans écraser tout le document
+      .update({ text: newEditedMessage });
 
-    setEditMessage(false)
-
-
-  }
-
+    setEditMessage(false);
+  };
 
   return (
     <div className="container">
       <nav>
         <div className="heading">
-
-      <h4>Chat en direct</h4>
+          <h4>Chat en direct</h4>
         </div>
-     
-      <ul>
 
-     
-{
-    messages.map((message,index)=>(
-      <li>
-      <TchatItem key={index} item={message} currentUserId={currentUserId}></TchatItem>
-      </li>
-      
-      ))
-
-    }
+        <ul>
+          {messages.map((message, index) => (
+            <li>
+              <TchatItem
+                key={index}
+                item={message}
+                currentUserId={currentUserId}
+              ></TchatItem>
+            </li>
+          ))}
           <div className="forScroll" ref={forScroll}></div>
-     </ul>
-     </nav>
-    
-          <form onSubmit={createMessage}>
+        </ul>
+      </nav>
+
+      <form onSubmit={createMessage}>
         <textarea
           placeholder="message"
           type="text"
@@ -110,11 +96,12 @@ export default function Tchat() {
             setText(e.target.value);
           }}
         />
+        {text.length<= 0 && 'disable'}
 
-        <Button variant="success" type="submit">
+        <Button variant='success' type="submit" disabled={text.length <= 0 && true} >
           Envoyer
         </Button>
-      </form> 
+      </form>
       {/* <div className="forScroll" ref={forScroll}></div> */}
     </div>
   );

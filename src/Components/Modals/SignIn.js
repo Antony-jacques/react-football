@@ -54,7 +54,7 @@ e.preventDefault()
             <form className="form-auth" onSubmit={handleSubmit}>
               <h2>Connexion</h2>
               <label htmlFor="mail">Email</label>
-              <input type="email" htmlFor="mail" ref={addInputs} value='test@test.fr' required />
+              <input type="email" htmlFor="mail" ref={addInputs} defaultValue='test@test.fr' required />
 
               <label htmlFor="psw">Mot de passe</label>
               <input type="password" htmlFor="psw" ref={addInputs} value='tttttt' required />
