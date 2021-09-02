@@ -6,6 +6,7 @@ import LoginPage from './Pages/LoginPage/LoginPage'
 import PrivateHome from './Pages/PrivateHome/PrivateHome'
 import PrivateLivePage from './Pages/PrivateLivePage/PrivateLivePage'
 import SingleMatchPage from './Pages/SingleMatchPage/SingleMatchPage'
+import UserProfilePage from './Pages/UserProfilePage/UserProfilePage'
 import Tchat from './Components/Tchat/Tchat'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
 import AuthProvider from'./Context/AuthContext'
@@ -29,6 +30,7 @@ function App() {
           <PrivateRoute exact path='/accueil' component={PrivateHome}></PrivateRoute>
           <PrivateRoute exact path='/live' component={PrivateLivePage}></PrivateRoute>
           <PrivateRoute exact path='/Tchat' component={Tchat}></PrivateRoute>
+          <PrivateRoute exact path='/profile' component={UserProfilePage}></PrivateRoute>
           <PrivateRoute exact path='/match/:slug' component={SingleMatchPage}></PrivateRoute>
 
         </Switch>
