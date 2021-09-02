@@ -37,3 +37,14 @@ nav ul
     border-color: #337ab7;
     padding: 1rem;
 }
+
+.authorImage{
+    height: 150px;
+    width:150px;
+    border-radius:50%
+
+}
+
+.authorContainer{
+
+}

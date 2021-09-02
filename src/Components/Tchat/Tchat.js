@@ -44,6 +44,8 @@ export default function Tchat() {
         text,
         authorId: currentUser.uid,
         createdAt: new Date(),
+        authorImageURL : currentUser.photoURL,
+        authorName : currentUser.displayName
       });
     setText("");
 
@@ -66,6 +68,7 @@ export default function Tchat() {
     setEditMessage(false);
   };
 
+  // console.log('currentUser', currentUser)
   return (
     <div className="container">
       <nav>
