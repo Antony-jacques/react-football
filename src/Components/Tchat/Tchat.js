@@ -9,6 +9,7 @@ import TchatItem from "./TchatItem";
 import "./Tchat.css";
 
 export default function Tchat() {
+
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const { currentUser } = useContext(AuthContext);
@@ -30,6 +31,7 @@ export default function Tchat() {
             return { messageId: doc.id, data: doc.data() };
           })
         );
+        // scroll vers le bas de la liste de msg
         forScroll.current.scrollIntoView({ behaviour: "smooth" });
       });
   }, []);
@@ -52,21 +54,7 @@ export default function Tchat() {
     forScroll.current.scrollIntoView({ behaviour: "smooth" });
   };
 
-  const deleteMessage = (messageId) => {
-    db.collection("messages")
-      // doc() permet de selectionner un doc en particulier via le parametre
-      .doc(messageId)
-      .delete();
-  };
 
-  const sendEditedMessage = (messageId) => {
-    db.collection("messages")
-      .doc(messageId)
-      // update() change un seul champs du doc sans écraser tout le document
-      .update({ text: newEditedMessage });
-
-    setEditMessage(false);
-  };
 
   // console.log('currentUser', currentUser)
   return (

@@ -25,6 +25,9 @@ export default function PrivateNavbar() {
             <Link style={{ margin: "0 3rem" }} to="/profile">
             Profile
             </Link>
+            <Link style={{ margin: "0 3rem" }} to="/classements">
+            Classements
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
