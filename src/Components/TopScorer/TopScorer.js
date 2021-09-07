@@ -1,32 +1,47 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from "react";
+import {CompetitionContext} from '../../Context/CompetitionContext/CompetitionContext'
+
 
 const TopScorer = () => {
+  const [topScrorerList, setTopScrorerList] = useState([]);
+  const {competition} = useContext(CompetitionContext)
+  let fetchURL = `https://api.football-data.org/v2/competitions/${competition}/scorers`;
 
-    const [topScrorerList, setTopScrorerList] = useState([]);
-    const [competition, setCompetition] = useState('PL');
-    let fetchURL = `https://api.football-data.org/v2/competitions/${competition}/scorers`
+  useEffect(() => {
+    async function getTopScrer() {
+      const reponse = await fetch(fetchURL, {
+        method: "GET",
+        headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
+      });
+      const data = await reponse.json();
+      setTopScrorerList(data.scorers);
 
-    useEffect(()=>{
-        async function getTopScrer(){
-           const reponse = await fetch(fetchURL,{
-                method: "GET",
-                headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" }
-          
-            })
-            const data = await reponse.json();
-            setTopScrorerList(data.scorers) ;
+      return reponse;
+    }
+    getTopScrer();
+  }, [fetchURL]);
 
-            return (reponse);
-        }
-        getTopScrer()
-    },[fetchURL])
-    
-    console.log('topScrorerList',topScrorerList);
-    return (
-        <div>
-            TopScorer
-        </div>
-    );
-}
+  return (
+    <div>
+      <h2>Top 10 buteurs</h2>
+      <ul>
+        {topScrorerList.map((scorer, index) => (
+          <li key={index}>
+            <span>
+            {scorer.numberOfGoals}
+            </span>  
+            <img
+              src="https://statorium.com/media/bearleague/events/48x48icons-14.png"
+              alt=""
+            />
+            
+            <span>{scorer.player.name}</span>
+            <span>({scorer.team.name})</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default TopScorer;

@@ -1,23 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Table from "react-bootstrap/Table";
 import imgData from "../../imgData";
+import {CompetitionContext} from '../../Context/CompetitionContext/CompetitionContext'
+import CompetitionSelector from '../CompetitionSelector/CompetitionSelector'
 
 const LeagueRanking = () => {
   const [leagueRank, setLeagueRank] = useState([]);
+  const {competition} = useContext(CompetitionContext)
+  const fetchURL = `https://api.football-data.org/v2/competitions/${competition}/standings`
 
   useEffect(() => {
-    fetch(`https://api.football-data.org/v2/competitions/2021/standings`, {
-      method: "GET",
-      headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
-    })
-      .then((response) => response.json())
-      .then((response) => setLeagueRank(response.standings[0].table));
-  }, []);
+    async function getRanking(){
+      let response =   await  fetch(fetchURL, {
+        method: "GET",
+        headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
+      })
+      let data = await response.json()
+      setLeagueRank(data.standings[0].table)
+    }
+    getRanking()
 
-  console.log("leagueRank", leagueRank);
+
+  }, [fetchURL]);
+
+  console.log("competition", competition);
   return (
     <div>
-      LeagueRanking
+      <CompetitionSelector/>
       <Table striped bordered hover>
         <thead>
           <tr>

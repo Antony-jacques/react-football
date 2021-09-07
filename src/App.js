@@ -11,6 +11,7 @@ import Tchat from './Components/Tchat/Tchat'
 import RankingPage from './Pages/RankingPage/RankingPage'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
 import AuthProvider from'./Context/AuthContext'
+import CompetitionProvider from './Context/CompetitionContext/CompetitionContext'
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,8 @@ function App() {
 
 
     <AuthProvider>
+      <CompetitionProvider>
+
       <Router>
         <Switch>
           <Route exact path='/' component={LoginPage} ></Route>
@@ -39,6 +42,7 @@ function App() {
       </Router>
 
 
+      </CompetitionProvider>
     </AuthProvider>
     </div>
   );
