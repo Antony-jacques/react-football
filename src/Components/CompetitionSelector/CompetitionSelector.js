@@ -11,7 +11,7 @@ const CompetitionSelector = () => {
         onClick={()=>setCompetition('FL1')}
         >Ligue 1</button>
         <button 
-        // onClick={getPLHighlights}
+        onClick={()=>setCompetition('PL')}
         >Premier League</button>
       </nav>
         </div>
