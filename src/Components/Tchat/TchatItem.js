@@ -14,19 +14,7 @@ const TchatItem = (item) => {
   const message = item.item;
   const currentUserId = currentUser.uid;
 
-  //ajouter un enregistrement https://www.youtube.com/watch?v=zpQle4SBRfg
-  const createMessage = (e) => {
-    e.preventDefault();
-    //selectionner la DB
-    db.collection("messages")
-      // la meth add permet d'ajouter un enreg. elle prend en arg un objet qui represente un document
-      .add({
-        text,
-        authorId: currentUser.uid,
-        createdAt: new Date(),
-      });
-    setText("");
-  };
+
 
   const deleteMessage = (messageId) => {
     db.collection("messages")
