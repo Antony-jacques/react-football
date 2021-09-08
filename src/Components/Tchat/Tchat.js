@@ -87,11 +87,12 @@ export default function Tchat() {
             setText(e.target.value);
           }}
         />
-        {text.length<= 0 && 'disable'}
+<div>
 
-        <Button variant='success' type="submit" disabled={text.length <= 0 && true} >
+        <Button  variant={text.length<= 0 ? 'secondary' :'success'} type="submit" disabled={text.length <= 0 && true} >
           Envoyer
         </Button>
+</div>
       </form>
       {/* <div className="forScroll" ref={forScroll}></div> */}
     </div>

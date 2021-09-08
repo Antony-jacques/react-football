@@ -22,7 +22,7 @@ const RankingPage = () => {
     </Col>
     <Col xs={12} md={4}>
       <TopScorer/>
-      <TopAssist/>
+
     </Col>
   </Row>
 </Container>

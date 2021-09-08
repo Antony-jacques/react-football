@@ -27,7 +27,7 @@ const TopScorer = () => {
   // }, [fetchURL]);
 
   return (
-    <div>
+    <div style={{marginTop:'5rem'}}>
       <h2>Top 10 buteurs</h2>
       <ul>
         {data.map((scorer, index) => (

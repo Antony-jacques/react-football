@@ -19,11 +19,8 @@ export default function PrivateNavbar() {
             <Link style={{ margin: "0 3rem" }} to="/live">
               Live
             </Link>
-            <Link style={{ margin: "0 3rem" }} to="/Tchat">
-              Tchat
-            </Link>
             <Link style={{ margin: "0 3rem" }} to="/profile">
-            Profile
+            Profil
             </Link>
             <Link style={{ margin: "0 3rem" }} to="/classements">
             Classements
