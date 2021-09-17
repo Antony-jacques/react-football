@@ -1,3 +1,26 @@
 .content-container {
-    margin: 50px auto 0;
+    padding: 50px  2rem;
+    height: calc(100vh - 70px);
 }
+
+/* The animation code */
+@keyframes appear {
+    from {
+        opacity: 0;
+        margin:-30px
+
+    
+    }
+    to {
+        opacity: 1;
+        margin-bottom:0.5rem
+
+    }
+  }
+  
+  /* The element to apply the animation to */
+  #banner-title {
+
+    animation-name: appear;
+    animation-duration: 2s;
+  }

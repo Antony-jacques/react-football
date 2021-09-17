@@ -66,9 +66,9 @@ export default function Tchat() {
 
         <ul>
           {messages.map((message, index) => (
-            <li>
+            <li key={index}>
               <TchatItem
-                key={index}
+                // key={index}
                 item={message}
                 currentUserId={currentUserId}
               ></TchatItem>

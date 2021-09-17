@@ -9,7 +9,7 @@ const TopScorer = () => {
   let fetchURL = `https://api.football-data.org/v2/competitions/${competition}/scorers`;
 
   const data = useFetch(fetchURL) // custom hook avec destructuring
-  console.log("TopScorer -> data", data)
+  // console.log("TopScorer -> data", data)
   
 
   // useEffect(() => {

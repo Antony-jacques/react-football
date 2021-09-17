@@ -23,7 +23,7 @@ const LeagueRanking = () => {
 
   }, [fetchURL]);
 
-  console.log("competition", competition);
+  //console.log("competition", competition);
   return (
     <div>
       <CompetitionSelector/>
@@ -44,7 +44,7 @@ const LeagueRanking = () => {
         </thead>
         <tbody>
           {leagueRank.map((rank, index) => (
-            <tr>
+            <tr key={index}>
               <td>{rank.position}</td>
               <td>
                 <img

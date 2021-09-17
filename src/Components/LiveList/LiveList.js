@@ -15,7 +15,7 @@ export default function LiveList() {
   };
 // ATTENTION 10 API calls per minute
   useEffect(() => {
-    fetch("https://api.football-data.org/v2/competitions/2021/standings", {
+    fetch("https://api.football-data.org/v2/competitions/2021/standings", { //récupère le classement et la journée courante
       method: "GET",
       headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
     })
@@ -25,7 +25,7 @@ export default function LiveList() {
 
   useEffect(() => {
     fetch(
-      `https://api.football-data.org/v2/competitions/PL/matches?matchday=${currentMatchday}`,
+      `https://api.football-data.org/v2/competitions/PL/matches?matchday=${currentMatchday}`,  // récupère les matchs d'une journée en particulier
       {
         method: "GET",
         headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
