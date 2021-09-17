@@ -27,7 +27,8 @@ const LoginPage = () => {
     })
   }
   return (
-    <div style={{backgroundImage: `  linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(80, 80, 100, 0.73)), url(${banner})`}}>
+    <div style={{backgroundImage: `  linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(80, 80, 100, 0.73)), url(${banner}) `,backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover' }}>
       <MyNavbar></MyNavbar>
       <div className="content-container" >
         <h1 id='banner-title' style={{color:'#fff'}} >Bienvenue sur mon site de football</h1>
