@@ -1,4 +1,21 @@
-.active
+.highlight-card
 {
-    background-color: aqua ;
+    padding: 1rem;
+    /* background-color: aqua; */
+    box-sizing: border-box;
+    width: 500px;
+}
+
+.highlight-card:hover{
+        background-color: #192a56;
+        
+}
+
+.highlight-card:hover h2{
+    color: #fff;
+    
+}
+
+.highlight-card img {
+    max-width: 450px;
 }

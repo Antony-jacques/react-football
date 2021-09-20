@@ -19,11 +19,17 @@ import {
   Link
 } from "react-router-dom";
 
+import { ThemeProvider } from '@mui/material/styles';
+import muiTheme from './muiTheme'
+
+
 
 function App() {
   return (
+    <ThemeProvider theme = {muiTheme}>
     <div className="App">
 
+    
 
     <AuthProvider>
       <CompetitionProvider>
@@ -45,6 +51,7 @@ function App() {
       </CompetitionProvider>
     </AuthProvider>
     </div>
+    </ThemeProvider>
   );
 }
 
