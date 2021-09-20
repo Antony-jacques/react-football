@@ -40,10 +40,8 @@ export default function PrivateNavbar() {
 
             {navItems.map((item, index) => (
               
-              <Link style={{ color:'rgba(0,0,0,.9);' ,   padding:'0rem 2rem' ,   textDecoration: 'none' }} to={item.url}>
-               <Nav.Link >
+              <Link style={{ color:'rgba(0,0,0,.9);' ,   padding:'0.5rem 2rem' ,   textDecoration: 'none', margin:'auto 0' }} to={item.url}>
                 {item.text}
-                 </Nav.Link>
               </Link>
             ))}
             <Nav.Link >
