@@ -5,6 +5,7 @@ import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 export default function ScrollToTopBtn() {
   const [isVisible, setIsVisible] = useState(false);
   const scrollFunction = ()=>{
+    // document.body.scrollTop for IE & FF
     if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
       setIsVisible(true)
     }else{
@@ -13,7 +14,7 @@ export default function ScrollToTopBtn() {
   }
   window.onscroll = function(){
     scrollFunction()
-    console.log(document.body.scrollTop, document.documentElement.scrollTop)
+    // console.log(document.body.scrollTop, document.documentElement.scrollTop)
 
   }
 

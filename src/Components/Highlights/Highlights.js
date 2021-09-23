@@ -27,10 +27,10 @@ const Highlights = () => {
       type: "LIGUE1",
     });
   };
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [gamesList, setGamesList] = useState([]);
-  const [filter, setFilter] = useState(false);
-  const [competition, setCompetition] = useState("ENGLAND: Premier League");
+  // const [filter, setFilter] = useState(false);
+  // const [competition, setCompetition] = useState("ENGLAND: Premier League");
 
   useEffect(() => {
     fetch("https://www.scorebat.com/video-api/v3/")

@@ -32,7 +32,7 @@ export default function Tchat() {
           })
         );
         // scroll vers le bas de la liste de msg
-        forScroll.current.scrollIntoView({ behaviour: "smooth" });
+        //forScroll.current.scrollIntoView({ behaviour: "smooth" });
       });
   }, []);
 

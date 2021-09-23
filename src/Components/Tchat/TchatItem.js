@@ -32,7 +32,7 @@ const TchatItem = (item) => {
     setEditMessage(false);
   };
 
-    console.log("message", message);
+   // console.log("message", message);
   //   console.log("currentUserId", currentUserId);
 
   return (

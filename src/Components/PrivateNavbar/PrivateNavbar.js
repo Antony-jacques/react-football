@@ -40,14 +40,12 @@ export default function PrivateNavbar() {
 
             {navItems.map((item, index) => (
               
-              <Link style={{ color:'rgba(0,0,0,.9);' ,   padding:'0.5rem 2rem' ,   textDecoration: 'none', margin:'auto 0' }} to={item.url}>
+              <Link key={index} style={{ color:'rgba(0,0,0,.9)' ,   padding:'0.5rem 2rem' ,   textDecoration: 'none', margin:'auto 0' }} to={item.url}>
                 {item.text}
               </Link>
             ))}
-            <Nav.Link >
-            <Link onClick={logout} style={{ margin: "0 3rem",textDecoration: 'none' }}>Se déconnecter</Link>
+            <Link to='#' onClick={logout} style={{ color:'rgba(0,0,0,.9)' ,   padding:'0.5rem 2rem' ,   textDecoration: 'none', margin:'auto 0'  }}>Se déconnecter</Link>
 
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,0 +1,18 @@
+.PrivateLivePage{
+    display:flex;
+     background: linear-gradient(to top, rgba(80, 82, 88, 0.5), rgba(80, 82, 88, 0.5)), url('../../images/vienna-reyes-qCrKTET_09o-unsplash.jpg') no-repeat;  background-position: bottom; 
+     background-size:cover; 
+     height:50vh;
+      width:100vw
+}
+
+@media screen and (max-width: 700px) {
+
+.PrivateLivePage h2{
+    font-size: 3rem !important;
+}
+
+
+}
+
+

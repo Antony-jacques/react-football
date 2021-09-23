@@ -57,7 +57,7 @@ e.preventDefault()
               <input type="email" htmlFor="mail" ref={addInputs} defaultValue='test@test.fr' required />
 
               <label htmlFor="psw">Mot de passe</label>
-              <input type="password" htmlFor="psw" ref={addInputs} value='tttttt' required />
+              <input type="password" htmlFor="psw" ref={addInputs} defaultValue='tttttt' required />
               <p style={{color:'red'}}>{error}</p>
               <button>Se connecter</button>
             </form>

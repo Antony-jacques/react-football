@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { CompetitionContext } from "../../Context/CompetitionContext/CompetitionContext";
 import "./CompetitionSelector.css";
 import Nav from "react-bootstrap/Nav";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const CompetitionSelector = () => {
   const { setCompetition } = useContext(CompetitionContext);
@@ -9,18 +11,33 @@ const CompetitionSelector = () => {
 
   return (
     <div style={{marginTop:'3rem'}}>
-      <Nav variant="pills" defaultActiveKey="link-1">
-        <Nav.Item>
-          <Nav.Link onClick={() => setCompetition("PL")} eventKey="link-1">
-            Premier League
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link onClick={() => setCompetition("FL1")} eventKey="link-2">
-            Ligue 1
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
+
+<ButtonGroup
+          variant="contained"
+          aria-label="outlined primary button group"
+        >
+
+
+
+          <Button
+
+
+           color={
+            competition ==='PL' &&
+            "secondary"
+          } 
+          onClick={() => setCompetition("PL")}>Premier League</Button>
+          <Button 
+          color={
+            competition ==='FL1' &&
+            "secondary"
+          }
+          onClick={() => setCompetition("FL1")}>Ligue 1</Button>
+        </ButtonGroup>
+
+
+
+
     </div>
   );
 };
