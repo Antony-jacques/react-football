@@ -7,9 +7,13 @@ import { AuthContext } from "../../Context/AuthContext";
 import Button from "react-bootstrap/Button";
 import TchatItem from "./TchatItem";
 import "./Tchat.css";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import Fab from "@mui/material/Fab";
+import GoToTchatBtn from './GoToTchatBtn'
+
+import ScrollToTopBtn from '../ScrollToTopBtn/ScrollToTopBtn'
 
 export default function Tchat() {
-
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const { currentUser } = useContext(AuthContext);
@@ -17,6 +21,7 @@ export default function Tchat() {
   const [editMessage, setEditMessage] = useState(false);
   const [newEditedMessage, setNewEditedMessage] = useState("");
   const forScroll = useRef();
+  const chatAnchor = useRef();
 
   useEffect(() => {
     //acceder à la table messages
@@ -32,7 +37,7 @@ export default function Tchat() {
           })
         );
         // scroll vers le bas de la liste de msg
-        //forScroll.current.scrollIntoView({ behaviour: "smooth" });
+        //  forScroll.current.scrollIntoView({ behaviour: "smooth" });
       });
   }, []);
 
@@ -46,55 +51,76 @@ export default function Tchat() {
         text,
         authorId: currentUser.uid,
         createdAt: new Date(),
-        authorImageURL : currentUser.photoURL,
-        authorName : currentUser.displayName
+        authorImageURL: currentUser.photoURL,
+        authorName: currentUser.displayName,
       });
     setText("");
 
     forScroll.current.scrollIntoView({ behaviour: "smooth" });
   };
 
+  const scrollToLastMessage = ()=>{
+    forScroll.current.scrollIntoView({ behaviour: "smooth" });
+
+  }
 
 
-  // console.log('currentUser', currentUser)
   return (
-    <div className="container">
-      <nav>
-        <div className="heading">
-          <h4>Chat en direct</h4>
-        </div>
+    <div id='tchat' ref={chatAnchor}>
 
-        <ul>
-          {messages.map((message, index) => (
-            <li key={index}>
-              <TchatItem
-                // key={index}
-                item={message}
-                currentUserId={currentUserId}
-              ></TchatItem>
-            </li>
-          ))}
-          <div className="forScroll" ref={forScroll}></div>
-        </ul>
-      </nav>
+
+    <div className="container">
+      <div className="tchat-container">
+        <nav>
+          <div className="heading">
+            <h4>Chat en direct</h4>
+            <Fab onClick={scrollToLastMessage} size="small" color="secondary" aria-label="edit">
+              <ArrowDownwardIcon />
+            </Fab>
+          </div>
+
+          <ul>
+            {messages.map((message, index) => (
+              <li key={index}>
+                <TchatItem
+                  // key={index}
+                  item={message}
+                  currentUserId={currentUserId}
+                ></TchatItem>
+              </li>
+            ))}
+            <div className="forScroll" ref={forScroll}></div>
+          </ul>
+        </nav>
+      </div>
 
       <form onSubmit={createMessage}>
         <textarea
-          placeholder="message"
+          id="tchat-message"
+          rows="4"
+          cols="20"
+          placeholder="Message"
           type="text"
           value={text}
           onChange={(e) => {
             setText(e.target.value);
           }}
         />
-<div>
-
-        <Button  variant={text.length<= 0 ? 'secondary' :'success'} type="submit" disabled={text.length <= 0 && true} >
-          Envoyer
-        </Button>
-</div>
+        <div>
+          <Button
+            variant={text.length <= 0 ? "secondary" : "success"}
+            type="submit"
+            disabled={text.length <= 0 && true}
+          >
+            Envoyer
+          </Button>
+        </div>
       </form>
       {/* <div className="forScroll" ref={forScroll}></div> */}
+      <GoToTchatBtn chatAnchor={chatAnchor}></GoToTchatBtn>
+      {/* <ScrollToTopBtn></ScrollToTopBtn> */}
     </div>
+    </div>
+
   );
 }

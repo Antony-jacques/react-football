@@ -36,7 +36,7 @@ const TchatItem = (item) => {
   //   console.log("currentUserId", currentUserId);
 
   return (
-    <div>
+    <div className='tchat-item'>
       <div>
         <div
           className={
@@ -44,13 +44,19 @@ const TchatItem = (item) => {
           }
         >
           {!editMessage ? (
+            <div>
+              <div className="img-container">
+              {(message.data.authorName && message.data.authorImageURL) &&  <div className='authorContainer' > <img className='authorImage' src={message.data.authorImageURL} alt=""/> <p>{message.data.authorName}</p> </div> }
+              </div>
+
+            
             <div className='messageContainer' >
-              {(message.data.authorName && message.data.authorImageURL) && <div className='authorContainer' > <img className='authorImage' src={message.data.authorImageURL} alt=""/> {message.data.authorName}</div> }
-              <p>
+
+              <p className='message-text'>
 
               {message.data.text}
               </p>
-            </div>
+            </div></div>
           ) : (
             <div>
               <textarea
@@ -71,23 +77,23 @@ const TchatItem = (item) => {
             </div>
           )}
 
+        </div>
           {currentUserId === message.data.authorId && (
-            <div>
+            <div className='author-box'>
               <Button
                 onClick={() => deleteMessage(message.messageId)}
                 variant="danger"
               >
-                x
+                Supprimer 
               </Button>
               <Button
                 variant="warning"
                 onClick={() => setEditMessage(!editMessage)}
               >
-                modifier
+                Modifier 
               </Button>
             </div>
           )}
-        </div>
       </div>
       {/* <form onSubmit={createMessage}>
         <textarea

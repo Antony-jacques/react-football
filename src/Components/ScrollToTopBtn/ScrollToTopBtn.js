@@ -14,7 +14,7 @@ export default function ScrollToTopBtn() {
   }
   window.onscroll = function(){
     scrollFunction()
-    // console.log(document.body.scrollTop, document.documentElement.scrollTop)
+     console.log(document.body.scrollTop, document.documentElement.scrollTop)
 
   }
 

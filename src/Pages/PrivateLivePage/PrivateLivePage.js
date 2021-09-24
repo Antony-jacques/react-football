@@ -7,6 +7,16 @@ import './PrivateLivePage.css'
 
 
 export default function PrivateLivePage() {
+
+const scrollFunction= ()=>{
+    console.log('test')
+}
+
+    window.onscroll = function(){
+        scrollFunction()
+        console.log(document.body.scrollTop, document.documentElement.scrollTop)
+   
+     }
     return (
         <div >
             <PrivateNavbar/>
