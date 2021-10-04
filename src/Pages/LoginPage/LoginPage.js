@@ -7,7 +7,6 @@ import MyNavbar from "../../Components/MyNavbar/MyNavbar";
 import SignUp from "../../Components/Modals/SignUp";
 import SignIn from "../../Components/Modals/SignIn";
 
-import Tchat from '../../Components/Tchat/Tchat'
 import banner from '../../images/soccer-488700_1921.jpg'
 import Button from '@material-ui/core/Button';
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import imgData from "./imgData";
-import { Link } from "react-router-dom";
 import "./LiveList.css";
 import CompetitionSelector from "../CompetitionSelector/CompetitionSelector";
 import { CompetitionContext } from "../../Context/CompetitionContext/CompetitionContext";
@@ -9,7 +8,7 @@ import Button from "@mui/material/Button";
 export default function LiveList() {
   const [data, setData] = useState([]);
 
-  const { setCompetition } = useContext(CompetitionContext);
+ // const { setCompetition } = useContext(CompetitionContext);
   const { competition } = useContext(CompetitionContext);
   const [standings, setStandings] = useState();
   const [currentMatchday, setCurrentMatchday] = useState("1");
@@ -45,8 +44,6 @@ export default function LiveList() {
   }, [currentMatchday, competition]);
 
   console.log("data", data);
-  //  console.log('standings', standings);
-  //  console.log('test', test);
 
   const competitionGames = [];
   for (let i = 1; i <= 38; i++) {
@@ -77,16 +74,17 @@ export default function LiveList() {
           <Button onClick={getPreviousGame} variant="outlined">
             Précédent
           </Button>
-          {/* <button onClick={getPreviousGame}>Précédent</button> */} <h2 id="current-matchday"><span >Journée</span> {" "}
+           <h2 id="current-matchday">{" "}<span >Journée</span> {" "}
           {currentMatchday}{" "}</h2>
           <Button onClick={getNextGame} variant="outlined">
             Suivant
           </Button>
-          {/* <button  onClick={getNextGame}>Suivant</button> */}
         
-        <div>
-
-        Choisir une journée : <select
+        <div style={{marginTop:'2rem'}}>
+          <h3>
+            Choisir une journée :
+          </h3>
+         <select
           onChange={(e) => {
             setCurrentMatchday(e.target.value);
           }}
@@ -113,7 +111,6 @@ export default function LiveList() {
                      - 
                      {val.awayTeam.name.replace(/FC|Wanderers|Hotspur|& Hove Albion/gi, "")}{" "}
                     <img src={imgData[val.awayTeam.id]} alt="" />
-                    {/* {val.homeTeam.id} {val.homeTeam.name} - {val.awayTeam.name} {val.awayTeam.id} */}
                   </h3>
                   <h4>
                     {val.status === "FINISHED" &&
@@ -132,7 +129,6 @@ export default function LiveList() {
                         ":" +
                         date.getMinutes().toString().padStart(2, "0")}
 
-                    {/* {(val.status === "SCHEDULED" && (date.getMonth()+1)>10) && 'à venir ' + (date.getMonth()+1).padStart(2, '0')} */}
                   </h4>
                 </li>
               );

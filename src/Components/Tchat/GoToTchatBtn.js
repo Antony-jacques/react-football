@@ -10,6 +10,7 @@ const GoToTchatBtn = (chatAnchor) => {
         const ieAndFFoxScroll = document.body.scrollTop;
         const gChromeScroll = document.documentElement.scrollTop;
             const tchatPosition= chatAnchor.chatAnchor.current.offsetTop
+            console.log("window.onscroll -> chatAnchor", chatAnchor)
 
     
           console.log('scroll du chat',tchatPosition)

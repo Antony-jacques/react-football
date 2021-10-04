@@ -1,13 +1,10 @@
 import React, {useState, useContext } from "react";
-// import { getAuth, updateProfile } from "firebase/auth";
-// import {updateProfile} from '../../firebase'
 import {AuthContext} from '../../Context/AuthContext'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { auth } from "../../firebase";
 
 const UserProfileForm = () => {
@@ -42,7 +39,7 @@ const UserProfileForm = () => {
     <div>
       
 
-      <Container>
+      <Container style={{marginTop:'2rem'}}>
   <Row className="justify-content-md-center">
 
       <Form onSubmit={editProfile} >
@@ -55,18 +52,21 @@ const UserProfileForm = () => {
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>url de votre image de profil</Form.Label>
-    <Form.Control onChange={(e)=>setProfileImage(e.target.value)} type="text" placeholder="url" />
+    <Form.Label>URL de votre image de profil</Form.Label>
+    <Form.Control onChange={(e)=>setProfileImage(e.target.value)} type="text" placeholder="URL" />
   </Form.Group>
 
   <Button variant="success" type="submit">
     Enregistrer
   </Button>
 </Form>
+<h3 style={{marginTop:'2rem'}}>
+
 {user.displayName ? user.displayName: 'null' }
+</h3>
 <p>
 
-{user.photoURL ? <img src={user.photoURL} alt=""/> : 'null'}
+{user.photoURL ? <img style={{width:'200px'}} src={user.photoURL} alt=""/> : 'null'}
 </p>
   </Row>
 </Container>

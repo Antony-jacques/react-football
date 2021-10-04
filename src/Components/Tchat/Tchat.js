@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import firebase from "../../firebase";
+// import firebase from "../../firebase";
 import { db } from "../../firebase";
-import { doc, setDoc, deleteDoc } from "firebase/firestore";
+// import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
 import { AuthContext } from "../../Context/AuthContext";
 import Button from "react-bootstrap/Button";
@@ -11,15 +11,15 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Fab from "@mui/material/Fab";
 import GoToTchatBtn from './GoToTchatBtn'
 
-import ScrollToTopBtn from '../ScrollToTopBtn/ScrollToTopBtn'
+// import ScrollToTopBtn from '../ScrollToTopBtn/ScrollToTopBtn'
 
 export default function Tchat() {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser.uid;
-  const [editMessage, setEditMessage] = useState(false);
-  const [newEditedMessage, setNewEditedMessage] = useState("");
+  // const [editMessage, setEditMessage] = useState(false);
+  // const [newEditedMessage, setNewEditedMessage] = useState("");
   const forScroll = useRef();
   const chatAnchor = useRef();
 

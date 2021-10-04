@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import Navbar from '../../Components/PrivateNavbar/PrivateNavbar'
 import LeagueRanking from '../../Components/LeagueRanking/LeagueRanking'
 import TopScorer from '../../Components/TopScorer/TopScorer'
-import TopAssist from '../../Components/TopAssist/TopAssist'
 
 
 

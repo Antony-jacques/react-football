@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import firebase from "../../firebase";
+import React, { useState,  useContext } from "react";
+//import firebase from "../../firebase";
 import { db } from "../../firebase";
-import { doc, setDoc, deleteDoc } from "firebase/firestore";
+//import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
 import { AuthContext } from "../../Context/AuthContext";
 import Button from "react-bootstrap/Button";
 
 const TchatItem = (item) => {
-  const [text, setText] = useState("");
+  //const [text, setText] = useState("");
   const { currentUser } = useContext(AuthContext);
   const [editMessage, setEditMessage] = useState(false);
   const [newEditedMessage, setNewEditedMessage] = useState("");
@@ -95,19 +95,6 @@ const TchatItem = (item) => {
             </div>
           )}
       </div>
-      {/* <form onSubmit={createMessage}>
-        <textarea
-          placeholder="message"
-          type="text"
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-        <Button variant="success" type="subit">
-          Envoyer
-        </Button>
-      </form>  */}
     </div>
   );
 };

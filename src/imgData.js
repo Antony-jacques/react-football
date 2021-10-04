@@ -18,7 +18,30 @@ const imgData = {
   328:'	https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4486.png',
   341:'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4073.png',
   76:'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4211.png',
-  66:'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4080.png'
+  66:'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4080.png',
+  524 : 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4094.png',
+  521:'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4699.png ',
+  547: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4216.png',
+  529: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4894.png',
+  541: '	https://i.eurosport.com/_iss_/sport/football/club/logo/medium/103916.png',
+  543 : 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4084.png',
+  512 : 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/102250.png',
+  518: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4735.png',
+  526: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4024.png',
+  548: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4008.png',
+  527: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4108.png',
+  546: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4808.png',
+  576: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4125.png',
+  532: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4413.png',
+  516: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4226.png',
+  545: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4728.png',
+  523: '	https://i.eurosport.com/_iss_/sport/football/club/logo/medium/4772.png',
+  531: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/103182.png',
+  525: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/103432.png',
+  522: 'https://i.eurosport.com/_iss_/sport/football/club/logo/medium/102001.png'
+
+
+
 };
 
 export default imgData;

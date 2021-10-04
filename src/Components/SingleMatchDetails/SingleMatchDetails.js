@@ -6,7 +6,6 @@ import "./SingleMatchDetails.css";
 
 export default function SingleMatchDetails() {
   let { slug } = useParams(); // récupère le slug de l'url et le stocke ds la var slug
-  const [matchDetails, setMatchDetails] = useState();
 
   const dispatch = useDispatch();
   const matchDetailsStore = useSelector((state) => state);
@@ -17,8 +16,6 @@ export default function SingleMatchDetails() {
       headers: { "X-Auth-Token": "c4a193f2be0948b8b3e1fdb775252d4a" },
     })
       .then((response) => response.json())
-      // creer un f qui dispatch + set  une nouv var refreshSlug qui stock le slug.
-      //si !slug -> fetch avec refreshSlug
       .then((response) =>
         dispatch({
           type: "GETMATCH",

@@ -23,23 +23,22 @@ const LeagueRanking = () => {
 
   }, [fetchURL]);
 
-  //console.log("competition", competition);
   return (
     <div>
       <CompetitionSelector/>
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Rang</th>
             <th>Equipe</th>
             <th>Points</th>
-            <th>Joué</th>
-            <th>Gagné</th>
-            <th>Nul</th>
-            <th>Perdu</th>
-            <th>Buts inscrits</th>
-            <th>Buts encaissés</th>
-            <th>Différence de buts</th>
+            <th className="to-hide" >Joué</th>
+            <th className="to-hide">Gagné</th>
+            <th className="to-hide">Nul</th>
+            <th className="to-hide">Perdu</th>
+            <th className="to-hide">Buts inscrits</th>
+            <th className="to-hide">Buts encaissés</th>
+            <th className="to-hide">Différence de buts</th>
           </tr>
         </thead>
         <tbody>
@@ -55,13 +54,13 @@ const LeagueRanking = () => {
                 {rank.team.name}
               </td>
               <td>{rank.points}</td>
-              <td>{rank.playedGames}</td>
-              <td>{rank.won}</td>
-              <td>{rank.draw}</td>
-              <td>{rank.lost}</td>
-              <td>{rank.goalsFor}</td>
-              <td>{rank.goalsAgainst}</td>
-              <td>{rank.goalDifference}</td>
+              <td className="to-hide">{rank.playedGames}</td>
+              <td className="to-hide">{rank.won}</td>
+              <td className="to-hide">{rank.draw}</td>
+              <td className="to-hide">{rank.lost}</td>
+              <td className="to-hide">{rank.goalsFor}</td>
+              <td className="to-hide">{rank.goalsAgainst}</td>
+              <td className="to-hide">{rank.goalDifference}</td>
             </tr>
           ))}
         </tbody>

@@ -27,10 +27,7 @@ const Highlights = () => {
       type: "LIGUE1",
     });
   };
-  // const [data, setData] = useState([]);
   const [gamesList, setGamesList] = useState([]);
-  // const [filter, setFilter] = useState(false);
-  // const [competition, setCompetition] = useState("ENGLAND: Premier League");
 
   useEffect(() => {
     fetch("https://www.scorebat.com/video-api/v3/")
@@ -46,7 +43,6 @@ const Highlights = () => {
           return setGamesList(response.response);
         }
       });
-    // .then(response =>  setData(response.response))
   }, [highlightsStore.competition, highlightsStore.filter]);
 
   console.log(highlightsStore.competition)
@@ -98,17 +94,6 @@ const Highlights = () => {
                   <img src={val.thumbnail} alt="" />
                 </a>
 
-                <div>
-                  {/* <iframe
-                    src={val.matchviewUrl}
-                    title={index}
-                    frameBorder="0"
-                    width="560"
-                    height="650"
-                    allowFullScreen
-                    allow="autoplay; fullscreen"
-                  ></iframe> */}
-                </div>
               </div>
             );
           })}

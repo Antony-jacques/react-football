@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-import {AuthContext} from '../../Context/AuthContext'
+import React from 'react';
 import Highlights from '../../Components/Highlights/Highlights'
 import PrivateNavbar from '../../Components/PrivateNavbar/PrivateNavbar'
 import ScrollToTopBtn from '../../Components/ScrollToTopBtn/ScrollToTopBtn'
@@ -7,7 +6,6 @@ import ScrollToTopBtn from '../../Components/ScrollToTopBtn/ScrollToTopBtn'
 
 const PrivateHome = () => {
 
-    const {logout} = useContext(AuthContext)
     return (
         <div >
             <PrivateNavbar/>

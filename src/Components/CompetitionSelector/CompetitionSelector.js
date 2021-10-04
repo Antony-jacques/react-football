@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { CompetitionContext } from "../../Context/CompetitionContext/CompetitionContext";
 import "./CompetitionSelector.css";
-import Nav from "react-bootstrap/Nav";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 
